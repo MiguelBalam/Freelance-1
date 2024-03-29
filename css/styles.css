@@ -1,0 +1,333 @@
+:root {
+  --blanco: #ffffff;
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+  --gris: #757575;
+  --grisClaro: #dfe9f3;
+}
+
+/* GLOBALES */
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  /* y para vertical y x horizontal */
+  scroll-snap-type: y mandatory;
+}
+
+/* SCROLL SNAP  */
+.servicios,
+.navegacion-principal,
+.formulario {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  /* 1 rem = 10px */
+  font-size: 16px;
+
+  /* es una fuente de escritura */
+  font-family: "Krub", sans-serif;
+
+  background-image: linear-gradient(
+    to top,
+    var(--grisClaro) 0%,
+    var(--blanco) 100%
+  );
+}
+
+.contenedor {
+  max-width: 120rem;
+
+  /* el margen es como el reloj */
+  margin: 0 auto;
+}
+
+.boton {
+  background-color: var(--secundario);
+  /* ES para el texto dentro del boton  */
+  color: var(--blanco);
+
+  padding: 1rem 3rem;
+  margin-top: 3rem;
+
+  /* el tamanio de la fuente  */
+  font-size: 2rem;
+
+  text-decoration: none;
+
+  /* para que el texto este en mayusculas */
+  text-transform: uppercase;
+
+  /* quede negro el texto */
+  font-weight: bold;
+
+  border-radius: 0.5rem;
+
+  text-align: center;
+
+  border: none;
+}
+
+.boton:hover {
+  cursor: pointer;
+}
+
+/* 480px  Celular, 768px Tablet, 1140px  Laptop Promedio, 1440px "Más grande" Pantallas Retina */
+@media (max-width: 768px) {
+  .navegacion-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .w-sm-100 {
+    width: 100%;
+  }
+
+  /* .servicios{
+    grid-template-rows: repeat(3, 1fr);
+  } */
+
+  .servicio:nth-child(1),
+  .servicio:nth-child(2),
+  .servicio:nth-child(3) {
+    grid-column: 1 / 4;
+  }
+}
+
+.sombra {
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+  box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+/* TIPOGRAFIA */
+
+h1 {
+  /* font-size: es para el tamanio del texto */
+  font-size: 3.8rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+  /* centrar el texto  */
+  text-align: center;
+}
+
+/* TITULOS */
+
+.titulo span {
+  font-size: 2rem;
+}
+
+/* UTILIDADES */
+
+.flex {
+  display: flex;
+}
+
+.alinear-derecha {
+  justify-content: flex-end;
+}
+
+/* NAVEGACION PRINCIPAL */
+
+.nav-bg {
+  background-color: var(--secundario);
+}
+
+.navegacion-principal {
+  display: flex;
+
+  /* es para ver si va de arriba o de lado 
+    flex-direction: row o column; 
+    align-items: ;   */
+  justify-content: space-between;
+}
+
+.navegacion-principal a {
+  color: var(--blanco);
+
+  /* para quita la linea que tiene por defecto */
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+
+/* HERO */
+
+.hero {
+  background-image: url(../img/hero.jpg);
+
+  /* para que no se repita la imagen */
+  background-repeat: no-repeat;
+
+  /* es para que la imagen agarre todo el ancho */
+  background-size: cover;
+  height: 450px;
+  /* padding: 20px; */
+  /* position: relative; */
+
+  margin-bottom: 2rem;
+}
+
+.contenido-hero {
+  /* background-color: rgba(0, 0, 0, .7); Anterior */
+  background-color: rgb(0 0 0 / 70%);
+  width: 100%;
+  height: 100%;
+
+  /* todos los hijos los va colocar de izquierda a derecha */
+  display: flex;
+  /* hace que se vaya de arriba hacia abajo */
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+  color: var(--blanco);
+}
+
+.contenido-hero .ubicacion {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* SERVICIOS */
+
+.servicios {
+  display: grid;
+  /* 1fr(25%) 1fr(25%) 2fr(50%) o 33.3% 33.3% 33.3% */
+  grid-template-columns: repeat(3, 1fr);
+
+  /* separacion de columnas */
+  column-gap: 1rem;
+}
+
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.servicio h2 {
+  color: var(--secundario);
+  font-weight: 400;
+}
+
+.servicio p {
+  /* interlineado */
+  line-height: 2;
+  text-align: center;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: var(--primario);
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* contacto */
+
+.formulario {
+  background-color: var(--gris);
+  /* utiliza el valor mas grande */
+  width: min(60rem, 100%);
+
+  /* se utilizar cuando no es un formulario y que su padre no sea un display:flex */
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.formulario fieldset {
+  /* quitar el borde */
+  border: none;
+}
+
+.formulario legend {
+  text-align: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primario);
+}
+
+.contenedor-campos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto 20rem;
+  column-gap: 1rem;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  color: var(--blanco);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* para que no crear una clase y solo selecciona el que quieres */
+.campo:nth-child(3),
+.campo:nth-child(4) {
+  grid-column: 1 / 3;
+}
+
+/* .campo input[type="text"]{
+  background-color:red;
+} */
+
+.campo textarea {
+  height: 20rem;
+}
+
+.input-text {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+/* FOOTER */
+
+.footer {
+  text-align: center;
+}
